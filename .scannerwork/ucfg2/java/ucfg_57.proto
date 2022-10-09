@@ -1,0 +1,59 @@
+
+,domain.Question#toString()Ljava/lang/String;{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java³ ³("1*Ñ
+1{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´	 ´(È
+Å
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´	 ´(
+%0java.lang.Integer"__id*'*%
+domain.Question"
+questionNumberÄ
+Á
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´	 ´(
+%1java.lang.String"__concat*
+
+%0java.lang.Integer*
+;Á
+¾
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´ ´($
+%2java.lang.String"__id*!*
+domain.Question"
+
+questionÖ
+Ó
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´	 ´($
+%3java.lang.String"__concat*
+
+%1java.lang.String*
+
+%2java.lang.StringÃ
+À
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´	 ´((
+%4java.lang.String"__concat*
+
+%3java.lang.String*
+;æ
+ã
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´+ ´(F
+%5java.lang.String".java.lang.Double#toString(D)Ljava/lang/String;*"
+java.lang.Double*
+""Ö
+Ó
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´	 ´(F
+%6java.lang.String"__concat*
+
+%4java.lang.String*
+
+%5java.lang.String"—
+{
+oC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Question.java´ ´(G
+
+%6java.lang.StringB
+domain.Question

@@ -1,0 +1,3 @@
+domain.Elkarrizketa#<init>(Ljava/lang/String;LUser;LUser;)V
+java.util.Date#<init>()V
+java.util.Date#instance-init#

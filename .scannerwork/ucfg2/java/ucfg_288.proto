@@ -1,0 +1,33 @@
+
+Wbusinesslogic.BLFacadeImplementation#getEventsMonth(Ljava/util/Date;)Ljava/util/Vector;è
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.javaw  w(."startingBlock*ø
+startingBlockè
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.javaw. w(9–
+Õ
+è
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.javaw w(
+%0"
+__annotate*
+	WebMethod*
+
+datejava.util.Date√
+¿
+è
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.javaw4 w(8
+datejava.util.Date"__annotation*
+
+%0*
+1*à
+1è
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.javax x(æ
+ª
+è
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.javay y(5
+datesjava.util.Vector"__id*
+"""Ø
+è
+ÑC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/businesslogic/BLFacadeImplementation.java{ {(
+
+datesjava.util.Vector:
+datejava.util.DateB(&
+$businesslogic.BLFacadeImplementation

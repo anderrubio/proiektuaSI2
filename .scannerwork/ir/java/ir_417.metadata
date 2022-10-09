@@ -1,0 +1,2 @@
+dataaccess.DataAccess#storeQuote(Ljava/lang/String;Ljava/lang/Double;LQuestion;)LQuote;
+null

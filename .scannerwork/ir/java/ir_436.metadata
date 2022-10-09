@@ -1,0 +1,5 @@
+dataaccess.DataAccess#elkarrizketakLortu(LUser;)Ljava/util/List;
+domain.ElkarrizketaContainer#instance-init#
+java.util.LinkedList#<init>()V
+domain.ElkarrizketaContainer#<init>(LElkarrizketa;)V
+java.util.LinkedList#instance-init#

@@ -1,0 +1,172 @@
+
+6gui.RegisteredGUI#getLblNewLabel()Ljavax/swing/JLabel;}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaë ë("3*∆)
+2}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaì# ì(1°
+û
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaì# ì(H
+%1java.util.ResourceBundle"Pjava.util.ResourceBundle#getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;*"
+java.util.ResourceBundle*
+	Etiquetas∑¥
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaì# ì(b
+%2java.lang.String"Hjava.util.ResourceBundle#getString(Ljava/lang/String;)Ljava/lang/String;* 
+
+%1java.util.ResourceBundle*
+SelectOption2getString(Ljava/lang/String;)∞≠
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaì ì("
+%3javax.swing.JLabel"javax.swing.JLabelÓ
+Î
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaì ì(c
+%4".javax.swing.JLabel#<init>(Ljava/lang/String;)V*
+
+%3javax.swing.JLabel*
+
+%2java.lang.String—
+Œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaì ì(c+
+gui.RegisteredGUI"
+jLabelSelectOption"__id*
+
+%3javax.swing.JLabel—
+Œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaî î(
+%5javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOption‰·
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaî î(%
+
+%6void"$javax.swing.JComponent#setOpaque(Z)V*
+
+%5javax.swing.JLabel*22setOpaque(Z)—
+Œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaï ï(
+%7javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOption¶
+£
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaï$ ï(.
+%8java.awt.Color"__id*
+""úô
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaï ï(/
+
+%9void"7javax.swing.JComponent#setBackground(Ljava/awt/Color;)V*
+
+%7javax.swing.JLabel*
+
+%8java.awt.Color2setBackground(Ljava/awt/Color;)“
+œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javañ ñ(
+%10javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOption¸˘
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javañ ñ(1
+%11void"#java.awt.Component#setBounds(IIII)V*
+
+%10javax.swing.JLabel*2°*2*2±*2:2setBounds(IIII)“
+œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaó ó(
+%12javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOptionú
+ô
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaó1 ó(:
+
+%13int"__id*
+""ß§
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaó" ó(&
+%14java.awt.Font"java.awt.FontÓ
+Î
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaó ó(?
+%15"+java.awt.Font#<init>(Ljava/lang/String;II)V*
+
+%14java.awt.Font*
+
+Tahoma*
+
+
+%13int*2êç
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaó ó(@
+%16void"0javax.swing.JComponent#setFont(Ljava/awt/Font;)V*
+
+%12javax.swing.JLabel*
+
+%14java.awt.Font2setFont(Ljava/awt/Font;)“
+œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaò ò(
+%17javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOptionß
+§
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaò$ ò(/
+%18java.awt.Color"__id*
+""üú
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaò ò(0
+%19void"7javax.swing.JComponent#setForeground(Ljava/awt/Color;)V*
+
+%17javax.swing.JLabel*
+
+%18java.awt.Color2setForeground(Ljava/awt/Color;)“
+œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaô ô(
+%20javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOptionú
+ô
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaô- ô(B
+
+%21int"__id*
+""ÑÅ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaô ô(C
+%22void"-javax.swing.JLabel#setHorizontalAlignment(I)V*
+
+%20javax.swing.JLabel*
+
+
+%21int2setHorizontalAlignment(I)*
+1*ﬁ
+3}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaí í(—
+Œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaí í(
+%0javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOption*
+2
+1*ˆ
+1}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaõ	 õ(“
+œ
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaõ	 õ(
+%23javax.swing.JLabel"__id*-*+
+gui.RegisteredGUI"
+jLabelSelectOption"ú
+}
+qC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/RegisteredGUI.javaõ õ(
+
+%23javax.swing.JLabelB
+gui.RegisteredGUI

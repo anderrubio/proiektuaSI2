@@ -1,0 +1,72 @@
+
+(domain.Quote#equals(Ljava/lang/Object;)Zv
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javan n("startingBlock*þ
+2v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javas s("€
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javas s(
+""*Ì
+3v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javar r(
+ÞÛ
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javar r(
+%0java.lang.Class",java.lang.Object#getClass()Ljava/lang/Class;*
+domain.Quote2
+getClass()åâ
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javar r(#
+%1java.lang.Class",java.lang.Object#getClass()Ljava/lang/Class;*
+
+ojava.lang.Object2
+getClass()*
+2
+1*û
+startingBlockv
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javan n( ¾
+»
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javam m(
+
+%4"
+__annotate*
+java.lang.Override*
+
+ojava.lang.Object¨
+¥
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javan n(
+ojava.lang.Object"__annotation*
+
+%4*
+3
+4*þ
+4v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javap
+ p("€
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javap p(
+""*‹
+1v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javau u(­
+ª
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javau u(
+qdomain.Quote"__id*
+
+ojava.lang.Objectêç
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javav
+ v(
+%2java.lang.Integer"0domain.Quote#getQuoteNumber()Ljava/lang/Integer;*
+domain.Quote2getQuoteNumber()íê
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javav! v(3
+%3java.lang.Integer"0domain.Quote#getQuoteNumber()Ljava/lang/Integer;*
+
+qdomain.Quote2getQuoteNumber()"€
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javav v(4
+"":
+ojava.lang.ObjectB
+domain.Quote

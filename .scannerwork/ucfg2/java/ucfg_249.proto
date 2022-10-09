@@ -1,0 +1,53 @@
+
+)domain.Quote#toString()Ljava/lang/String;v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaY Y("1*â
+1v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ	 Z(¹
+¶
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ Z(
+%0java.lang.String"__id**
+domain.Quote"
+
+forecastÇ
+Ä
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ	 Z(
+%1java.lang.String"__concat*
+
+Forecast: *
+
+%0java.lang.StringÆ
+Ã
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ	 Z(*
+%2java.lang.String"__concat*
+
+%1java.lang.String*
+	; Quote: ¶
+³
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ; Z(@
+%3java.lang.Double"__id**
+domain.Quote"
+balioó
+ð
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ+ Z(A
+%4java.lang.String".java.lang.Double#toString(D)Ljava/lang/String;*"
+java.lang.Double*
+
+%3java.lang.DoubleÑ
+Î
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ	 Z(A
+%5java.lang.String"__concat*
+
+%2java.lang.String*
+
+%4java.lang.String"’
+v
+lC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/domain/Quote.javaZ Z(B
+
+%5java.lang.StringB
+domain.Quote

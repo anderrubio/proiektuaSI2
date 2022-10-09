@@ -1,0 +1,47 @@
+
+ogui.SarreraOntziaGUI#getListCellRendererComponent(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaê ê(."startingBlock*´
+startingBlockÄ
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaê. ë(Õ
+ 
+Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaè è(
+
+%0"
+__annotate*
+java.lang.Override*
+
+listjavax.swing.JList∑
+¥
+Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaê5 ê(9
+listjavax.swing.JList"__annotation*
+
+%0Õ
+ 
+Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaè è(
+
+%1"
+__annotate*
+java.lang.Override*
+
+valuejava.lang.Object∑
+¥
+Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaêB ê(G
+valuejava.lang.Object"__annotation*
+
+%1*
+1*î
+1Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaì	 ì("ã
+Ä
+tC:/Users/Aimar/Desktop/Unibertsitatea/SoftwareIngenieritza2/Proiektua/Bets21/src/main/java/gui/SarreraOntziaGUI.javaì ì(
+"":
+listjavax.swing.JList:
+valuejava.lang.Object:
+"":
+"":
+""B
+gui.SarreraOntziaGUI

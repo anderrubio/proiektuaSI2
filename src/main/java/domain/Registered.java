@@ -39,7 +39,7 @@ public class Registered extends User implements Serializable{
 		this.apustuAnitzak = new Vector<ApustuAnitza>();
 		this.irabazitakoa=0.0;
 		this.zenbat=0;
-		this.mode=null;
+		this.mode="";
 		this.diruLimitea=0.0;
 		this.nikLista= new Vector<Jarraitzailea>();
 		this.niriLista= new Vector<Jarraitzailea>();

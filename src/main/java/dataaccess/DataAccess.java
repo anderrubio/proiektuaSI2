@@ -22,13 +22,16 @@ import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Admin;
 import domain.ApustuAnitza;
+import domain.ApustuEginKlaseLag;
 import domain.Apustua;
+import domain.DiruKudeatzailea;
 import domain.Elkarrizketa;
 import domain.ElkarrizketaContainer;
 import domain.Event;
 import domain.Jarraitzailea;
 import domain.KirolEstatistikak;
 import domain.Message;
+import domain.MezuEstruktura;
 import domain.MezuakContainer;
 import domain.Question;
 import domain.Quote;
@@ -47,7 +50,7 @@ import exceptions.QuoteAlreadyExist;
 public class DataAccess  {
 	protected static EntityManager  db;
 	protected static EntityManagerFactory emf;
-
+	private final String apEginString = "ApustuaEgin";
 
 	ConfigXML c=ConfigXML.getInstance();
 
@@ -236,11 +239,12 @@ public class DataAccess  {
 				
 			}
 			else if (Locale.getDefault().equals(new Locale("en"))) {
-				q1=ev1.addQuestion("Who will win the match?",1);
+				String whoWins = "Who will win the match?";
+				q1=ev1.addQuestion(whoWins,1);
 				q2=ev1.addQuestion("Who will score first?",2);
-				q3=ev11.addQuestion("Who will win the match?",1);
+				q3=ev11.addQuestion(whoWins,1);
 				q4=ev11.addQuestion("How many goals will be scored in the match?",2);
-				q5=ev17.addQuestion("Who will win the match?",1);
+				q5=ev17.addQuestion(whoWins,1);
 				q6=ev17.addQuestion("Will there be goals in the first half?",2);
 				
 			}			
@@ -428,17 +432,17 @@ public class DataAccess  {
 			reg2.addApustuAnitza(apA9);
 			ke8.eguneratuKont(1);
 			
-			Transaction t1 = new Transaction(reg1, apA1.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t3 = new Transaction(reg2, apA4.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t4 = new Transaction(reg3, apA5.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t5 = new Transaction(reg4, apA3.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t6 = new Transaction(reg4, apA6.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t7 = new Transaction(reg1, apA7.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t8 = new Transaction(reg1, apA8.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t9 = new Transaction(reg2, apA9.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t10 = new Transaction(reg2, apA10.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t11 = new Transaction(reg3, apA11.getBalioa(), new Date(), "ApustuaEgin");
-			Transaction t12 = new Transaction(reg3, apA12.getBalioa(), new Date(), "ApustuaEgin");
+			Transaction t1 = new Transaction(reg1, apA1.getBalioa(), new Date(), apEginString);
+			Transaction t3 = new Transaction(reg2, apA4.getBalioa(), new Date(), apEginString);
+			Transaction t4 = new Transaction(reg3, apA5.getBalioa(), new Date(), apEginString);
+			Transaction t5 = new Transaction(reg4, apA3.getBalioa(), new Date(), apEginString);
+			Transaction t6 = new Transaction(reg4, apA6.getBalioa(), new Date(), apEginString);
+			Transaction t7 = new Transaction(reg1, apA7.getBalioa(), new Date(), apEginString);
+			Transaction t8 = new Transaction(reg1, apA8.getBalioa(), new Date(), apEginString);
+			Transaction t9 = new Transaction(reg2, apA9.getBalioa(), new Date(), apEginString);
+			Transaction t10 = new Transaction(reg2, apA10.getBalioa(), new Date(), apEginString);
+			Transaction t11 = new Transaction(reg3, apA11.getBalioa(), new Date(), apEginString);
+			Transaction t12 = new Transaction(reg3, apA12.getBalioa(), new Date(), apEginString);
 			
 			reg1.addTransaction(t1);
 			reg2.addTransaction(t3);
@@ -744,11 +748,11 @@ public class DataAccess  {
 			db.persist(m12);
 			
 			db.getTransaction().commit();
-			
-			this.DiruaSartu(reg1, 50.0, new Date(), "DiruaSartu");
-			this.DiruaSartu(reg2, 50.0, new Date(), "DiruaSartu");
-			this.DiruaSartu(reg3, 50.0, new Date(), "DiruaSartu");
-			this.DiruaSartu(reg4, 50.0, new Date(), "DiruaSartu");
+			String diruaSartuString = "DiruaSartu";
+			this.DiruaSartu(reg1, new Date(), new DiruKudeatzailea(50.0, diruaSartuString));
+			this.DiruaSartu(reg2, new Date(), new DiruKudeatzailea(50.0, diruaSartuString));
+			this.DiruaSartu(reg3, new Date(), new DiruKudeatzailea(50.0, diruaSartuString));
+			this.DiruaSartu(reg4, new Date(), new DiruKudeatzailea(50.0, diruaSartuString));
 			
 			System.out.println("Db initialized");
 		}
@@ -881,6 +885,12 @@ public void open(boolean initializeMode){
 	public boolean gertaerakSortu(String description,Date eventDate, String sport) {
 		boolean b = true;
 		db.getTransaction().begin();
+		b = gertaerakSortuLag1(description, eventDate, sport, b);
+		db.getTransaction().commit();
+		return b;
+	}
+
+	private boolean gertaerakSortuLag1(String description, Date eventDate, String sport, boolean b) {
 		Sport spo =db.find(Sport.class, sport);
 		if(spo!=null) {
 			TypedQuery<Event> Equery = db.createQuery("SELECT e FROM Event e WHERE e.getEventDate() =?1 ",Event.class);
@@ -891,19 +901,22 @@ public void open(boolean initializeMode){
 				}
 			}
 			if(b) {
-				String[] taldeak = description.split("-");
-				Team lokala = new Team(taldeak[0]);
-				Team kanpokoa = new Team(taldeak[1]);
-				Event e = new Event(description, eventDate, lokala, kanpokoa);
-				e.setSport(spo);
-				spo.addEvent(e);
-				db.persist(e);
+				gertaerakSortuLag2(description, eventDate, spo);
 			}
 		}else {
-			return false;
+			b=false;
 		}
-		db.getTransaction().commit();
 		return b;
+	}
+
+	private void gertaerakSortuLag2(String description, Date eventDate, Sport spo) {
+		String[] taldeak = description.split("-");
+		Team lokala = new Team(taldeak[0]);
+		Team kanpokoa = new Team(taldeak[1]);
+		Event e = new Event(description, eventDate, lokala, kanpokoa);
+		e.setSport(spo);
+		spo.addEvent(e);
+		db.persist(e);
 	}
 	
 	public Quote storeQuote(String forecast, Double Quote, Question question) throws QuoteAlreadyExist {
@@ -963,23 +976,23 @@ public void open(boolean initializeMode){
 		return Qquery.getResultList();
 	}
 	
-	public void DiruaSartu(User u, Double dirua, Date data, String mota) {
+	public void DiruaSartu(User u, Date data, DiruKudeatzailea dk) {
 		Registered user = (Registered) db.find(User.class, u.getUsername()); 
 		db.getTransaction().begin();
-		Transaction t = new Transaction(user, dirua, data, mota); 
+		Transaction t = new Transaction(user, dk.getDirua(), data, dk.getMota()); 
 		System.out.println(t.getMota());
 		user.addTransaction(t);
-		user.updateDiruKontua(dirua);
+		user.updateDiruKontua(dk.getDirua());
 		db.persist(t);
 		db.getTransaction().commit();
 	}
 	
-	public boolean ApustuaEgin(User u, Vector<Quote> quote, Double balioa, Integer apustuBikoitzaGalarazi) {
+	public boolean ApustuaEgin(User u, Vector<Quote> quote, ApustuEginKlaseLag apLag) {
 		Registered user = (Registered) db.find(User.class, u.getUsername());
 		Boolean b;
-		if(user.getDirukop()>=balioa) {
+		if(user.getDirukop()>=apLag.getBalioa()) {
 			db.getTransaction().begin();
-			ApustuAnitza apustuAnitza = new ApustuAnitza(user, balioa);
+			ApustuAnitza apustuAnitza = new ApustuAnitza(user, apLag.getBalioa());
 			db.persist(apustuAnitza);
 			for(Quote quo: quote) {
 				Quote kuote = db.find(Quote.class, quo.getQuoteNumber());
@@ -990,12 +1003,12 @@ public void open(boolean initializeMode){
 			}
 			db.getTransaction().commit();
 			db.getTransaction().begin();
-			if(apustuBikoitzaGalarazi==-1) {
-				apustuBikoitzaGalarazi=apustuAnitza.getApustuAnitzaNumber();
+			if(apLag.getApustuBikoitzaGalarazi()==-1) {
+				apLag.setApustuBikoitzaGalarazi(apustuAnitza.getApustuAnitzaNumber());
 			}
-			apustuAnitza.setApustuKopia(apustuBikoitzaGalarazi);
-			user.updateDiruKontua(-balioa);
-			Transaction t = new Transaction(user, balioa, new Date(), "ApustuaEgin"); 
+			apustuAnitza.setApustuKopia(apLag.getApustuBikoitzaGalarazi());
+			user.updateDiruKontua(-apLag.getBalioa());
+			Transaction t = new Transaction(user, apLag.getBalioa(), new Date(), apEginString); 
 			user.addApustuAnitza(apustuAnitza);
 			for(Apustua a: apustuAnitza.getApustuak()) {
 				Apustua apu = db.find(Apustua.class, a.getApostuaNumber());
@@ -1024,10 +1037,12 @@ public void open(boolean initializeMode){
 					}
 				}
 				if(b) {
-					if(erab.getNork().getDiruLimitea()<balioa) {
-						this.ApustuaEgin(erab.getNork(), quote, erab.getNork().getDiruLimitea(), apustuBikoitzaGalarazi);
+					if(erab.getNork().getDiruLimitea()<apLag.getBalioa()) {
+						ApustuEginKlaseLag apLag2 = new ApustuEginKlaseLag(erab.getNork().getDiruLimitea(),apLag.getApustuBikoitzaGalarazi());
+						this.ApustuaEgin(erab.getNork(), quote, apLag2);
 					}else{
-						this.ApustuaEgin(erab.getNork(), quote, balioa, apustuBikoitzaGalarazi);
+						ApustuEginKlaseLag apLag2 = new ApustuEginKlaseLag(apLag.getBalioa(),apLag.getApustuBikoitzaGalarazi());
+						this.ApustuaEgin(erab.getNork(), quote, apLag2);
 					}
 				}
 			}
@@ -1111,38 +1126,35 @@ public void open(boolean initializeMode){
 		Question que = q.getQuestion(); 
 		Question question = db.find(Question.class, que); 
 		question.setResult(result);
-		for(Quote quo: question.getQuotes()) {
-			for(Apustua apu: quo.getApustuak()) {
-				
-				Boolean b=apu.galdutaMarkatu(quo);
-				if(b) {
-					apu.getApustuAnitza().setEgoera("galduta");
-				}else {
-					apu.setEgoera("irabazita");
-				}
-			}
-		}
+		for(Quote quo: question.getQuotes()) { emaitzakIpiniLag1(quo); }
 		db.getTransaction().commit();
-		for(Apustua a : listApustuak) {
-			db.getTransaction().begin();
-			Boolean bool=a.getApustuAnitza().irabazitaMarkatu();
-			db.getTransaction().commit();
-			if(bool) {
-				this.ApustuaIrabazi(a.getApustuAnitza());
+		for(Apustua a : listApustuak) { emaitzakIpiniLag2(a); }
+	}
+
+	private void emaitzakIpiniLag2(Apustua a) {
+		db.getTransaction().begin();
+		Boolean bool=a.getApustuAnitza().irabazitaMarkatu();
+		db.getTransaction().commit();
+		if(bool) {
+			this.ApustuaIrabazi(a.getApustuAnitza());
+		}
+	}
+
+	private void emaitzakIpiniLag1(Quote quo) {
+		for(Apustua apu: quo.getApustuak()) {
+			
+			Boolean b=apu.galdutaMarkatu(quo);
+			if(b) {
+				apu.getApustuAnitza().setEgoera("galduta");
+			}else {
+				apu.setEgoera("irabazita");
 			}
 		}
 	}
 	
 	public boolean gertaeraEzabatu(Event ev) {
 		Event event  = db.find(Event.class, ev); 
-		boolean resultB = true; 
-		List<Question> listQ = event.getQuestions(); 
-		
-		for(Question q : listQ) {
-			if(q.getResult() == null) {
-				resultB = false; 
-			}
-		}
+		boolean resultB = gertaeraEzabatuLag3(event);
 		if(resultB == false) {
 			return false;
 		}else if(new Date().compareTo(event.getEventDate())<0) {
@@ -1151,24 +1163,7 @@ public void open(boolean initializeMode){
 			List<Quote> listQUO = Qquery.getResultList();
 			for(int j=0; j<listQUO.size(); j++) {
 				Quote quo = db.find(Quote.class, listQUO.get(j));
-				for(int i=0; i<quo.getApustuak().size(); i++) {
-					ApustuAnitza apustuAnitza = quo.getApustuak().get(i).getApustuAnitza();
-					ApustuAnitza ap1 = db.find(ApustuAnitza.class, apustuAnitza.getApustuAnitzaNumber());
-					db.getTransaction().begin();
-					ap1.removeApustua(quo.getApustuak().get(i));
-					db.getTransaction().commit();
-					if(ap1.getApustuak().isEmpty() && !ap1.getEgoera().equals("galduta")) {
-						this.apustuaEzabatu(ap1.getUser(), ap1);
-					}else if(!ap1.getApustuak().isEmpty() && ap1.irabazitaMarkatu()){
-						this.ApustuaIrabazi(ap1);
-					}
-					db.getTransaction().begin();
-					Sport spo =quo.getQuestion().getEvent().getSport();
-					spo.setApustuKantitatea(spo.getApustuKantitatea()-1);
-					KirolEstatistikak ke=ap1.getUser().kirolEstatistikakLortu(spo);
-					ke.setKont(ke.getKont()-1);
-					db.getTransaction().commit();
-				}
+				gertaeraEzabatuLag2(quo);
 			}
 			
 		}
@@ -1176,6 +1171,42 @@ public void open(boolean initializeMode){
 		db.remove(event);
 		db.getTransaction().commit();
 		return true; 
+	}
+
+	private boolean gertaeraEzabatuLag3(Event event) {
+		boolean resultB = true; 
+		List<Question> listQ = event.getQuestions(); 
+		for(Question q : listQ) {
+			if(q.getResult() == null) {
+				resultB = false; 
+			}
+		}
+		return resultB;
+	}
+
+	private void gertaeraEzabatuLag2(Quote quo) {
+		for(int i=0; i<quo.getApustuak().size(); i++) {
+			ApustuAnitza apustuAnitza = quo.getApustuak().get(i).getApustuAnitza();
+			ApustuAnitza ap1 = db.find(ApustuAnitza.class, apustuAnitza.getApustuAnitzaNumber());
+			db.getTransaction().begin();
+			ap1.removeApustua(quo.getApustuak().get(i));
+			db.getTransaction().commit();
+			gertaeraEzabatuLag1(ap1);
+			db.getTransaction().begin();
+			Sport spo =quo.getQuestion().getEvent().getSport();
+			spo.setApustuKantitatea(spo.getApustuKantitatea()-1);
+			KirolEstatistikak ke=ap1.getUser().kirolEstatistikakLortu(spo);
+			ke.setKont(ke.getKont()-1);
+			db.getTransaction().commit();
+		}
+	}
+
+	private void gertaeraEzabatuLag1(ApustuAnitza ap1) {
+		if(ap1.getApustuak().isEmpty() && !ap1.getEgoera().equals("galduta")) {
+			this.apustuaEzabatu(ap1.getUser(), ap1);
+		}else if(!ap1.getApustuak().isEmpty() && ap1.irabazitaMarkatu()){
+			this.ApustuaIrabazi(ap1);
+		}
 	}
 	
 	public String saldoaBistaratu(User u) {
@@ -1204,7 +1235,7 @@ public void open(boolean initializeMode){
 		return lista;
 	}
 	
-	public boolean mezuaBidali(User igorlea, String hartzailea, String titulo, String test, Elkarrizketa elkarrizketa) {
+	public boolean mezuaBidali(User igorlea, String hartzailea, MezuEstruktura me, Elkarrizketa elkarrizketa) {
 		User igorle = db.find(User.class, igorlea.getUsername());
 		User hartzaile = db.find(User.class, hartzailea);
 		Elkarrizketa elk=null;
@@ -1212,12 +1243,12 @@ public void open(boolean initializeMode){
 			return false;
 		}else {
 			db.getTransaction().begin();
-			Message m = new Message(igorle, hartzaile, test);
+			Message m = new Message(igorle, hartzaile, me.getTestua());
 			db.persist(m);
 			if(elkarrizketa!=null) {
 				elk = db.find(Elkarrizketa.class, elkarrizketa.getElkarrizketaNumber());
 			}else {
-				elk= new Elkarrizketa(titulo, igorle, hartzaile);
+				elk= new Elkarrizketa(me.getTitulo(), igorle, hartzaile);
 				db.persist(elk);
 				m.setElkarrizketa(elk);
 				igorle.addElkarrizketak(elk);
@@ -1252,8 +1283,7 @@ public void open(boolean initializeMode){
 	
 	public List<Event> getEventsAll() {	
 		TypedQuery<Event> query = db.createQuery("SELECT ev FROM Event ev ",Event.class);   
-		List<Event> events = query.getResultList();
-	 	return events;
+	 	return query.getResultList();
 	}
 	
 	public void mezuaIkusita(Message m) {
@@ -1264,8 +1294,7 @@ public void open(boolean initializeMode){
 	}
 	
 	public Elkarrizketa findElkarrizketa(Elkarrizketa elk){
-		Elkarrizketa elkarrizketa = db.find(Elkarrizketa.class, elk.getElkarrizketaNumber()); 
-		return elkarrizketa;
+		return db.find(Elkarrizketa.class, elk.getElkarrizketaNumber());
 	}
 	
 	public boolean gertaerakKopiatu(Event e, Date date) {
@@ -1359,8 +1388,7 @@ public void open(boolean initializeMode){
 	
 	public List<Team> getAllTeams() {	
 		TypedQuery<Team> query = db.createQuery("SELECT t FROM Team t ",Team.class);   
-		List<Team> teams = query.getResultList();
-	 	return teams;
+	 	return query.getResultList();
 	}
 	
 	public void jarraituTaldea(User u, Team t) {

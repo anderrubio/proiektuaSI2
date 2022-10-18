@@ -1,37 +1,39 @@
 package testgertaerakSortu;
 
 import static org.junit.Assert.assertEquals;
+
+
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Vector;
 
-import javax.persistence.PersistenceException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.*;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import businesslogic.BLFacade;
 import businesslogic.BLFacadeImplementation;
-import domain.Event;
-import domain.Question;
+import dataaccess.DataAccess;
 import exceptions.EventFinished;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GertaerakSortuMockINTTest {
 	
+	DataAccess da = Mockito.mock(DataAccess.class);
+	
 	@Mock
-	BLFacade BLFacadeDAO;
+	BLFacadeImplementation facadeDAO = Mockito.mock(BLFacadeImplementation.class);
 
-	@InjectMocks
-	BLFacadeImplementation sut;
+    @InjectMocks
+	BLFacade sut = new BLFacadeImplementation(da);
 	
 	@Test
 	// sut.gertaerakSortu: The event does not exist and it is introduced.
@@ -43,16 +45,15 @@ public class GertaerakSortuMockINTTest {
 
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date data = null;
-
 			try {
 				data = sdf.parse("17/11/2022");
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			Mockito.doReturn(true).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
 
+			Mockito.when(da.gertaerakSortu(Mockito.anyString(), Mockito.any(), Mockito.any())).thenReturn(true);
+			
 			boolean esperotakoa = true;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, kirola);
 
@@ -80,14 +81,14 @@ public class GertaerakSortuMockINTTest {
 				e.printStackTrace();
 			}
 			
-			Mockito.doReturn(false).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
+			Mockito.when(da.gertaerakSortu(null, Mockito.any(), Mockito.any())).thenThrow(new RuntimeException());
 
 			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(null, data, kirola);
 			fail();
 			assertEquals(esperotakoa, emaitza);
-		} catch (NullPointerException e) {
-			// if the program goes to this point fail
+			
+		} catch (RuntimeException e) {
 			assertTrue(true);
 
 		} catch (Exception e) {
@@ -105,13 +106,13 @@ public class GertaerakSortuMockINTTest {
 			String kirola = "Tennis";
 			String deskr = "Nadal-Federer";
 			
-			Mockito.doReturn(false).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
+			Mockito.when(da.gertaerakSortu(Mockito.anyString(), null, Mockito.any())).thenThrow(new RuntimeException());
 
 			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(deskr, null, kirola);
 			fail();
 			assertEquals(esperotakoa, emaitza);
-		} catch (PersistenceException e) {
+		} catch (RuntimeException e) {
 			assertTrue(true);
 		} catch (Exception e) {
 			// if the program goes to this point fail
@@ -137,13 +138,13 @@ public class GertaerakSortuMockINTTest {
 				e.printStackTrace();
 			}
 			
-			Mockito.doReturn(false).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
+			Mockito.when(da.gertaerakSortu(Mockito.anyString(), Mockito.any(), null)).thenThrow(new RuntimeException());
 
 			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, null);
 			fail();
 			assertEquals(esperotakoa, emaitza);
-		} catch (PersistenceException e) {
+		} catch (RuntimeException e) {
 			assertTrue(true);
 		} catch (Exception e) {
 			// if the program goes to this point fail
@@ -170,7 +171,7 @@ public class GertaerakSortuMockINTTest {
 				e.printStackTrace();
 			}
 			
-			Mockito.doReturn(false).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
+			Mockito.when(da.gertaerakSortu(Mockito.anyString(), Mockito.any(), Mockito.any())).thenReturn(false);
 
 			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, kirola);
@@ -200,7 +201,7 @@ public class GertaerakSortuMockINTTest {
 				e.printStackTrace();
 			}
 			
-			Mockito.doReturn(false).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
+			Mockito.when(da.gertaerakSortu(Mockito.anyString(), Mockito.any(), Mockito.any())).thenReturn(false);
 
 			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, kirola);
@@ -224,20 +225,17 @@ public class GertaerakSortuMockINTTest {
 			Date data = null;
 			
 			try {
-				data = sdf.parse("08/10/2022");
+				data = sdf.parse("17/10/2022");
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			Mockito.doReturn(false).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
 			
 			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, kirola);
 			fail();
 
-			assertEquals(esperotakoa, emaitza);
-			
+			assertEquals(esperotakoa, emaitza);	
 		} catch (EventFinished e) {
 			assertTrue(true);
 		} catch (Exception e) {
@@ -258,18 +256,19 @@ public class GertaerakSortuMockINTTest {
 			Date data = null;
 			
 			try {
-				data = sdf.parse("09/10/2022");
+				data = sdf.parse("18/10/2022");
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			Mockito.doReturn(true).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
-			
-			boolean esperotakoa = true;
+						
+			boolean esperotakoa = false;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, kirola);
-
+			fail();
+			
 			assertEquals(esperotakoa, emaitza);
+		} catch (EventFinished e) {
+			assertTrue(true);
 		} catch (Exception e) {
 			// if the program goes to this point fail
 			fail();
@@ -288,13 +287,13 @@ public class GertaerakSortuMockINTTest {
 			Date data = null;
 			
 			try {
-				data = sdf.parse("10/10/2022");
+				data = sdf.parse("19/10/2022");
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			Mockito.doReturn(true).when(BLFacadeDAO).gertaerakSortu(Mockito.anyString(),Mockito.any(Date.class), Mockito.anyString());
+			Mockito.when(da.gertaerakSortu(Mockito.anyString(), Mockito.any(), Mockito.any())).thenReturn(true);
 
 			boolean esperotakoa = true;
 			boolean emaitza = sut.gertaerakSortu(deskr, data, kirola);
@@ -305,5 +304,5 @@ public class GertaerakSortuMockINTTest {
 			fail();
 		}
 	}
-	
+
 }

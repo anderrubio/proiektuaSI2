@@ -9,11 +9,14 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import domain.ApustuAnitza;
+import domain.ApustuEginKlaseLag;
 import domain.Apustua;
+import domain.DiruKudeatzailea;
 import domain.Elkarrizketa;
 import domain.ElkarrizketaContainer;
 import domain.Event;
 import domain.Message;
+import domain.MezuEstruktura;
 import domain.MezuakContainer;
 import domain.Question;
 import domain.Quote;
@@ -80,11 +83,11 @@ public interface BLFacade  {
 	
 	@WebMethod public Collection<Question> findQuestion(Event event);
 	
-	@WebMethod public void DiruaSartu(User u, Double dirua, String mota); 
+	@WebMethod public void DiruaSartu(User u, DiruKudeatzailea dk); 
 	
 	@WebMethod public Collection<Quote> findQuote(Question question); 
 	
-	@WebMethod public boolean ApustuaEgin(User u, Vector<Quote> q, Double balioa, Integer apustuaGalarazi); 
+	@WebMethod public boolean ApustuaEgin(User u, Vector<Quote> q, ApustuEginKlaseLag apLag); 
 	
 	@WebMethod public List<Apustua> findApustua(User u); 
 	
@@ -108,7 +111,7 @@ public interface BLFacade  {
 	
 	@WebMethod public List<ElkarrizketaContainer> elkarrizketakLortu(User u);
 	
-	@WebMethod public boolean mezuaBidali(User igorle, String hartzailea, String asunto, String test, Elkarrizketa m);
+	@WebMethod public boolean mezuaBidali(User igorle, String hartzailea, MezuEstruktura me, Elkarrizketa m);
 	
 	@WebMethod public List<Registered> rankingLortu();
 	

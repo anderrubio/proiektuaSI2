@@ -30,6 +30,7 @@ import com.toedter.calendar.JCalendar;
 
 import businesslogic.BLFacade;
 import configuration.UtilDate;
+import domain.ApustuEginKlaseLag;
 import domain.Event;
 import domain.Question;
 import domain.Quote;
@@ -225,7 +226,8 @@ public class ApustuaEginGUI extends JFrame{
 					zenb = Double.parseDouble(textua);
 					if(zenb>0.0) {
 						if(zenb>=maxMinBet) {
-							Boolean b = businessLogic.ApustuaEgin(user, quoteVec, zenb, -1);
+							ApustuEginKlaseLag apLag = new ApustuEginKlaseLag(zenb, -1);
+							Boolean b = businessLogic.ApustuaEgin(user, quoteVec, apLag);
 							quoteList= new DefaultListModel<Quote>();
 							quoteVec= new Vector<Quote>();
 							list.setModel(quoteList);

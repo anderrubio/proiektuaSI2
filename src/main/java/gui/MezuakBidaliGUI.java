@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import businesslogic.BLFacade;
 import domain.Elkarrizketa;
 import domain.Message;
+import domain.MezuEstruktura;
 import domain.User;
 
 public class MezuakBidaliGUI extends JFrame{
@@ -112,7 +113,8 @@ public class MezuakBidaliGUI extends JFrame{
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!user.getUsername().equals(txtHartzailea.getText())) {
-					Boolean ema= businessLogic.mezuaBidali(user, txtHartzailea.getText(), txtAsunto.getText(), txtTestua.getText(), elkarrizketa);
+					MezuEstruktura me = new MezuEstruktura(txtTestua.getText(), txtAsunto.getText());
+					Boolean ema= businessLogic.mezuaBidali(user, txtHartzailea.getText(),  me, elkarrizketa);
 					if(ema) {
 						thisw.setVisible(false);
 						JFrame a = new SarreraOntziaGUI(user);

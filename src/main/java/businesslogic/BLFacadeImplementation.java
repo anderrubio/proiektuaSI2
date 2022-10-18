@@ -12,11 +12,14 @@ import javax.jws.WebService;
 import configuration.ConfigXML;
 import dataaccess.DataAccess;
 import domain.ApustuAnitza;
+import domain.ApustuEginKlaseLag;
 import domain.Apustua;
+import domain.DiruKudeatzailea;
 import domain.Elkarrizketa;
 import domain.ElkarrizketaContainer;
 import domain.Event;
 import domain.Message;
+import domain.MezuEstruktura;
 import domain.MezuakContainer;
 import domain.Question;
 import domain.Quote;
@@ -193,16 +196,16 @@ public class BLFacadeImplementation  implements BLFacade {
 		return v;
     }
     @WebMethod	
-    public void DiruaSartu(User u, Double dirua, String mota) {
+    public void DiruaSartu(User u, DiruKudeatzailea dk) {
     	Date data = new Date();
     	dbManager.open(false); 
-    	dbManager.DiruaSartu(u, dirua, data, mota);
+    	dbManager.DiruaSartu(u, data, dk);
     	dbManager.close();
     }
     @WebMethod	
-    public boolean ApustuaEgin(User u, Vector<Quote> q, Double balioa, Integer apustuaGalarazi) {
+    public boolean ApustuaEgin(User u, Vector<Quote> q, ApustuEginKlaseLag apLag) {
     	dbManager.open(false);
-    	boolean b = dbManager.ApustuaEgin(u, q, balioa, apustuaGalarazi);
+    	boolean b = dbManager.ApustuaEgin(u, q, apLag);
     	dbManager.close();
     	return b; 
     }
@@ -265,9 +268,9 @@ public class BLFacadeImplementation  implements BLFacade {
     }
 	
 	@WebMethod
-	public boolean mezuaBidali(User igorle, String hartzailea, String titulo, String test, Elkarrizketa m) {
+	public boolean mezuaBidali(User igorle, String hartzailea, MezuEstruktura me, Elkarrizketa m) {
 		dbManager.open(false);
-		Boolean ema = dbManager.mezuaBidali(igorle, hartzailea, titulo, test, m);
+		Boolean ema = dbManager.mezuaBidali(igorle, hartzailea, me, m);
 		dbManager.close();
 		return ema;
 	}

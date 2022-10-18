@@ -5,6 +5,7 @@ package lortuRanking;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +21,7 @@ import domain.Registered;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RankingLortuMockINTTest {
-	DataAccess dataAccess=Mockito.mock(DataAccess.class);
+	DataAccess da=Mockito.mock(DataAccess.class);
 	@Mock
 	BLFacade dao;
 	@InjectMocks
@@ -31,9 +32,10 @@ public class RankingLortuMockINTTest {
 	public void test1() {
 		try {
 			ArrayList<Registered> lag = new ArrayList<Registered>();
-			Mockito.doReturn(lag).when(dao).rankingLortu();
-			ArrayList<Registered> esp = lag;
-			ArrayList<Registered> ema = (ArrayList<Registered>) sut.rankingLortu();	
+			//Mockito.doReturn(lag).when(dao).rankingLortu();
+			Mockito.when(da.rankingLortu()).thenReturn(lag);
+			List<Registered> esp = lag;
+			List<Registered> ema =  sut.rankingLortu();	
 			assertTrue(esp.equals(ema));
 		}
 		catch(Exception e) {
@@ -48,9 +50,9 @@ public class RankingLortuMockINTTest {
 			ArrayList<Registered> lag = new ArrayList<Registered>();
 			Registered r = new Registered("abc", "123", 43);
 			lag.add(r);
-			Mockito.doReturn(lag).when(dao).rankingLortu();
-			ArrayList<Registered> esp = lag;
-			ArrayList<Registered> ema = (ArrayList<Registered>) sut.rankingLortu();	
+			Mockito.when(da.rankingLortu()).thenReturn(lag);
+			List<Registered> esp = lag;
+			List<Registered> ema = sut.rankingLortu();	
 			assertTrue(esp.equals(ema));
 		}
 		catch(Exception e) {
@@ -68,9 +70,9 @@ public class RankingLortuMockINTTest {
 			r2.setIrabazitakoa(43.1);
 			lag.add(r1);
 			lag.add(r2);
-			Mockito.doReturn(lag).when(dao).rankingLortu();
-			ArrayList<Registered> esp = lag;
-			ArrayList<Registered> ema = (ArrayList<Registered>) sut.rankingLortu();	
+			Mockito.when(da.rankingLortu()).thenReturn(lag);
+			List<Registered> esp = lag;
+			List<Registered> ema = sut.rankingLortu();	
 			assertTrue(esp.equals(ema));
 		}
 		catch(Exception e) {
@@ -88,9 +90,9 @@ public class RankingLortuMockINTTest {
 			r2.setIrabazitakoa(43.1);
 			lag.add(r2);
 			lag.add(r1);
-			Mockito.doReturn(new ArrayList<Registered>()).when(dao).rankingLortu();
-			ArrayList<Registered> esp = lag;
-			ArrayList<Registered> ema = (ArrayList<Registered>) sut.rankingLortu();	
+			Mockito.when(da.rankingLortu()).thenReturn(lag);
+			List<Registered> esp = lag;
+			List<Registered> ema = sut.rankingLortu();	
 			assertTrue(esp.equals(ema));
 		}
 		catch(Exception e) {
